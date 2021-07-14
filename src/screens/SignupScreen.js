@@ -4,8 +4,6 @@ import { Text, Input, Button } from "react-native-elements";
 
 import Spacer from "../components/Spacer";
 import { theme } from "../constants/index";
-  
-
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: theme.spacing.xxxl,
-    marginTop StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`
+    marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : null,
     // marginTop: theme.spacing.sm,
   },
   inputSeparator: {
