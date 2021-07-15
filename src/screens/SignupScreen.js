@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import React, { useState, useContext } from "react";
+import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import { Text, Input, Button } from "react-native-elements";
 
 import Spacer from "../components/Spacer";
 import { theme } from "../constants/index";
+import { Context as AuthContext } from "../context/AuthContext";
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { state, signup } = useContext(AuthContext);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,7 +35,7 @@ const SignupScreen = ({ navigation }) => {
         secureTextEntry
       />
       <Spacer>
-        <Button title="Sign up" />
+        <Button title="Sign up" onPress={() => signup({ email, password })} />
       </Spacer>
     </SafeAreaView>
   );
