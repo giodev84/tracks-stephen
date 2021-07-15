@@ -1,5 +1,5 @@
 export const colors = {
-  secondary: "#e6e6fa",
+  secondary: "#adb5bd",
   danger: "#dc143c",
   light: "#f5f5f5",
   liteGray: "#ccc",
@@ -8,7 +8,7 @@ export const colors = {
   white: "#ffffff",
   black: "#000000",
   warning: "#daa520",
-  primary: "#C2185B",
+  primary: "#0d6efd",
   accent: "#FFC107",
   snow: "#fffafa",
   lavender: "#e6e6fa",
