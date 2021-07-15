@@ -34,6 +34,9 @@ const SignupScreen = ({ navigation }) => {
         autoCorrect={false}
         secureTextEntry
       />
+      {state.errorMessage ? (
+        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
+      ) : null}
       <Spacer>
         <Button title="Sign up" onPress={() => signup({ email, password })} />
       </Spacer>
@@ -50,6 +53,7 @@ SignupScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginHorizontal: theme.spacing.sm,
     justifyContent: "center",
     alignItems: "center",
     marginBottom: theme.spacing.xxxl,
@@ -58,6 +62,9 @@ const styles = StyleSheet.create({
   },
   inputSeparator: {
     margin: theme.spacing.sm,
+  },
+  errorMessage: {
+    color: theme.colors.danger,
   },
 });
 
