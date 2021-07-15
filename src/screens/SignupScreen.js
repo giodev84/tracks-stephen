@@ -1,14 +1,9 @@
 import React, { useContext } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  TouchableOpacity,
-} from "react-native";
-import { Text } from "react-native-elements";
+import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import { theme } from "../constants/index";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
+import NavLink from "../components/NavLink";
 
 const SignupScreen = ({ navigation }) => {
   const { state, signup } = useContext(AuthContext);
@@ -21,9 +16,10 @@ const SignupScreen = ({ navigation }) => {
         onSubmit={signup}
         buttonText="Sign Up"
       />
-      <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
-        <Text style={styles.link}>Already have an account? Go to Sign in</Text>
-      </TouchableOpacity>
+      <NavLink
+        linkText="Already have an account? Go to Sign in"
+        onNavigate={() => navigation.navigate("Signin")}
+      />
     </SafeAreaView>
   );
 };
@@ -42,10 +38,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: theme.spacing.xxxl,
     marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : null,
-    // marginTop: theme.spacing.sm,
-  },
-  link: {
-    color: theme.colors.primary,
   },
 });
 
