@@ -12,7 +12,7 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationEvents onWillBlur={clearErrorMessage} />
+      <NavigationEvents onWillFocus={clearErrorMessage} />
       <AuthForm
         headerText="Sign Up"
         errorMessage={state.errorMessage}
