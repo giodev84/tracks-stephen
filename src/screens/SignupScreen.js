@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import { NavigationEvents } from "react-navigation";
+
 import { theme } from "../constants/index";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
@@ -10,6 +12,7 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <AuthForm
         headerText="Sign Up"
         errorMessage={state.errorMessage}

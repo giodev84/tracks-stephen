@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import { NavigationEvents } from "react-navigation";
+
 import { theme } from "../constants/index";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
 
 const SigninScreen = ({ navigation }) => {
-  const { state, signin } = useContext(AuthContext);
+  const { state, signin, clearErrorMessage } = useContext(AuthContext);
 
   return (
     <SafeAreaView style={styles.container}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <AuthForm
         headerText="Sign In"
         errorMessage={state.errorMessage}
